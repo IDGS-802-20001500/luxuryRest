@@ -1,0 +1,12 @@
+.contenedorHome{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel{
+   margin-top: 10px;
+   width: 50%;
+}

@@ -1,0 +1,54 @@
+/*Para traer un fuente externa se debe hacer lo siguiente */
+@font-face{
+    font-family: Westwood-Studio;
+    src: url(../fonts/Westwood-Studio.ttf);
+}
+
+.navReact{    
+    width: 100%;
+    background-color: #6ea1ca;
+    padding: 10px;
+}
+
+.navReact .nombreEmpresa{
+    font-family: Westwood-Studio;
+    color: white;
+    font-size: 3.8rem;
+}
+
+.btnMenu{
+    height: 50px;
+    width: 50px;
+    font-size: 2.5rem;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnMenu:hover{
+    color: #000000;
+    transition: all 0.5s ease-in-out;
+}
+
+.menuOff{
+    list-style: none;
+    margin: 0;
+    /*Separando los elemenetos de la lista o danto un espacio*/
+    padding: 0;
+
+}
+
+.menuOff a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.menuOff li{
+    margin-bottom: 10px;
+}
+
+.menuApart:hover{
+    color: #6ea1ca;
+    transition: all 0.1s ease-in-out;
+}
