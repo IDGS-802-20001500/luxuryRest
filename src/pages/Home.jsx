@@ -201,6 +201,76 @@ const Home = () => {
             marginBottom: "20px",
           }}
         ></div>
+        <div>
+          <h1 className="text-center display-2">Nuestros productos son:</h1>
+          <br />
+          <div className="row g-3">
+            <div className="col-3">
+              <div className="card" style={{ height: "210px" }}>
+                <div className="card-body">
+                  <h1 className="card-title">Elegancia</h1>
+                  <hr />
+                  <p style={{ textAlign: "justify" }}>
+                    Nuestros productos son elegantes y de alta calidad, para que
+                    tu descanso sea lo más placentero posible.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="card" style={{ height: "210px" }}>
+                <div className="card-body">
+                  <h1 className="card-title">Comodos</h1>
+                  <hr />
+                  <p style={{ textAlign: "justify" }}>
+                    Nuestros productos son comodos y sumamente agradables para
+                    que tu descanso sea lo mas agradable posible.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="card" style={{ height: "210px" }}>
+                <div className="card-body">
+                  <h1 className="card-title">Duraderos</h1>
+                  <hr />
+                  <p style={{ textAlign: "justify" }}>
+                    Nuestros productos son los mas duraderos del mercado, por
+                    cual puedes disfrutar de ellos por mucho tiempo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3">
+              <div className="card" style={{ height: "210px" }}>
+                <div className="card-body">
+                  <h1 className="card-title">Calidad precio</h1>
+                  <hr />
+                  <p style={{ textAlign: "justify" }}>
+                    Nuestros productos son de la mejor calidad y al mejor precio
+                    que te podemos ofrecer en el mercado, cada centavo cuenta
+                    para nosotros.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="container-fluid"
+          style={{
+            backgroundColor: "black",
+            border: "1px solid black",
+            width: "100%",
+            height: "5px",
+            borderRadius: "16px",
+            marginTop: "20px",
+            marginBottom: "20px",
+          }}
+        ></div>
         <div
           className="localizanos"
           style={{
@@ -215,7 +285,7 @@ const Home = () => {
           <img
             src="/public/img/Ubicacion.png"
             alt="ubicacion"
-            style={{ width: "50%", height: "50%" }}
+            style={{ width: "50%" }}
           />
         </div>
         <div

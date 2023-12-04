@@ -1,0 +1,26 @@
+.contenedorRecetas{
+    margin: 15px;
+
+}
+
+.tituloContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer{
+    background-color: #6ea1ca;
+    border-radius: 50%;
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+}
+
+.titulo{
+    font-size: 48px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}

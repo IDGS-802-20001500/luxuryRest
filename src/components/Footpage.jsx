@@ -4,7 +4,18 @@ const Footpage = () => {
   return (
     <div>
       <footer className="footerPage">
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src="/public/img/logo-inverso.png"
+            style={{ width: "156px", height: "156px" }}
+          />
           <h3 className="tituloFooter">Luxury Rest</h3>
         </div>
         <div className="componetesFooter">
