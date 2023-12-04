@@ -52,6 +52,7 @@ const NavBar = () => {
                   Inicio
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -61,8 +62,9 @@ const NavBar = () => {
                   Iniciar sesión
                 </a>
               </li>
+              <hr />
               <li>
-                <a href="" className="menuApart">
+                <a href="/productos" className="menuApart">
                   <i
                     className="fa-solid fa-shop"
                     style={{ marginRight: "10px" }}
@@ -70,6 +72,7 @@ const NavBar = () => {
                   Productos
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -79,6 +82,7 @@ const NavBar = () => {
                   Inventario
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -88,8 +92,9 @@ const NavBar = () => {
                   Materia prima
                 </a>
               </li>
+              <hr />
               <li>
-                <a href="" className="menuApart">
+                <a href="/recetas" className="menuApart">
                   <i
                     className="fa-solid fa-book"
                     style={{ marginRight: "10px" }}
@@ -97,6 +102,7 @@ const NavBar = () => {
                   Recetas
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -106,6 +112,7 @@ const NavBar = () => {
                   Compras
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -115,6 +122,7 @@ const NavBar = () => {
                   Historial Ventas
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -124,6 +132,7 @@ const NavBar = () => {
                   Dashboard
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -133,6 +142,7 @@ const NavBar = () => {
                   Pedidos
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -142,6 +152,7 @@ const NavBar = () => {
                   Proveedores
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -151,6 +162,7 @@ const NavBar = () => {
                   Usuarios
                 </a>
               </li>
+              <hr />
               <li>
                 <a href="" className="menuApart">
                   <i
@@ -160,8 +172,9 @@ const NavBar = () => {
                   Ventas
                 </a>
               </li>
+              <hr />
               <li>
-                <a href="" className="menuApart">
+                <a href="/merma" className="menuApart">
                   <i
                     className="fa-solid fa-trash"
                     style={{ marginRight: "10px" }}
@@ -169,6 +182,7 @@ const NavBar = () => {
                   Mermas
                 </a>
               </li>
+              <hr />
             </ul>
           </div>
         </div>
