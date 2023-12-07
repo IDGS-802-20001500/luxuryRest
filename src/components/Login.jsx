@@ -92,7 +92,7 @@ const Login = () => {
         </div>
         <div className="mb-3 text-center">
           ¿No tienes cuenta?{" "}
-          <a href="http://localhost:5173/">Regístrate aquí</a>
+          <a href="http://localhost:5173/registrar">Regístrate aquí</a>
         </div>
         <div className="d-grid">
           <div className="text-center">

@@ -150,7 +150,9 @@ const Carrito = () => {
                         </div>
                         <div>
                           <p className="card-text">
-                            Precio: ${producto.precio_venta}
+                            <span className="bg-light p-1 rounded">
+                              <strong>Precio:</strong> ${producto.precio_venta}
+                            </span>
                           </p>
                         </div>
 
