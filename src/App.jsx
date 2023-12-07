@@ -6,6 +6,13 @@ import Pago from "./components/Pago";
 import Pedidos from "./components/Pedidos";
 import Login from "./components/Login";
 import Registrar from "./components/Registrar";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Recetas from "./pages/Recetas";
+import Productos from "./pages/Productos";
+import Merma from "./pages/Merma";
+import "./App.css";
+import Footpage from "./components/Footpage";
 
 const stripePromise = loadStripe(
   "pk_test_51MtEODBMu9RgSpPE73uA5jOG7SYLaorW6hU8u4wE1VNN6ERcPu19SiwPtusKsEXzQTYD6IdcOYgx5c1XlkvEufDg00EH0GUDX4"
@@ -15,13 +22,18 @@ const stripePromise = loadStripe(
 const App = () => {
   return (
     <BrowserRouter>
+      <NavBar />
+      <br />
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
         <Route path="login" element={<Login />} />
         <Route path="registrar" element={<Registrar />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<h1>login</h1>} />
+        <Route path="registrar" element={<h1>registrar</h1>} />
         <Route path="inventario" element={<h1>inventario</h1>} />
-        <Route path="productos" element={<h1>productos</h1>} />
-        <Route path="recetas" element={<h1>recetas</h1>} />
+        <Route path="productos" element={<Productos />} />
+        <Route path="recetas" element={<Recetas />} />
         <Route path="materiaPrima" element={<h1>materiaPrima</h1>} />
         <Route path="compras" element={<h1>compras</h1>} />
         <Route path="ventas/carrito" element={<Carrito />} />
@@ -38,8 +50,10 @@ const App = () => {
         <Route path="usuarios" element={<h1>usuarios</h1>} />
         <Route path="pedidos" element={<Pedidos />} />
         <Route path="finanzas" element={<h1>facturas</h1>} />
+        <Route path="merma" element={<Merma />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
+      <Footpage />
     </BrowserRouter>
   );
 };

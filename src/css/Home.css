@@ -1,0 +1,36 @@
+@font-face{
+    font-family: Westwood-Studio;
+    src: url(../fonts/Westwood-Studio.ttf);
+}
+
+.contenedorHome{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel{
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+}
+
+.carrusel img{
+    width: 100%;
+    height: 500px;
+}
+
+.tituloHome{
+    margin-top: 10px;
+    font-size: 5rem;
+    font-family: Westwood-Studio;
+}
+
+.subtituloHome{
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(161, 158, 158);
+}
