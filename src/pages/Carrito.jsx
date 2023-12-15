@@ -10,6 +10,8 @@ const Carrito = () => {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
   const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [productSelected, setProductSelected] = useState({});
 
   useEffect(() => {
     axios.get("https://localhost:7075/api/Productos").then((response) => {
@@ -86,6 +88,52 @@ const Carrito = () => {
     padding: "20px", // Añade un padding al contenido de la tarjeta
   };
 
+  const handleCardClick = (product) => {
+    setModalVisible(true);
+    setProductSelected(product);
+  };
+
+  function ProductModal({ producto }) {
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h4>{producto.nombre}</h4>
+            <button
+              onClick={() => {
+                setModalVisible(false);
+              }}
+            >
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div className="modal-body">
+            <div className="row">
+              <div className="col-md-6">
+                <img src={producto.imagen} className="img-fluid" />
+              </div>
+              <div className="col-md-6">
+                <p>{producto.descripcion}</p>
+                <p>Price: ${producto.precio_venta}</p>
+                <Rating
+                  count={5}
+                  value={producto.valoracionT / producto.valoracionC}
+                  edit={false}
+                  isHalf={true}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container mt-4">
       <h1 style={{ textAlign: "center" }}>LuxuryRest</h1>
@@ -111,99 +159,99 @@ const Carrito = () => {
                 />
               </>
             )}
-            {productos
-              .filter((producto) =>
-                producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
-              )
-              .map((producto) => (
-                <div key={producto.id_producto} className="col-md-4 mb-3">
-                  <div className="card" style={cardStyle}>
-                    <div
-                      className="card-body"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <div className="row">
-                        <div className="col-md-12">
-                          <h4
-                            className="card-title"
-                            style={{ textAlign: "center" }}
-                          >
-                            {producto.nombre}
-                          </h4>
-                        </div>
-                        <img
-                          src={`${producto.imagen}`}
-                          width={"100%"}
-                          height={"40%"}
-                          alt="Imagen de producto"
-                        />
-                        <div className="col-md-12">
-                          <p
-                            className="card-text"
-                            style={{ textAlign: "center" }}
-                          >
-                            Descripcion: {producto.descripcion}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="card-text">
-                            <span className="bg-light p-1 rounded">
-                              <strong>Precio:</strong> ${producto.precio_venta}
-                            </span>
-                          </p>
-                        </div>
-
-                        <div style={{ marginLeft: "auto" }}>
-                          <Rating
-                            count={5}
-                            value={producto.valoracionT / producto.valoracionC}
-                            edit={false}
-                            isHalf={true}
-                            emptyIcon={<i className="far fa-star"></i>}
-                            halfIcon={<i className="fa fa-star-half-alt"></i>}
-                            fullIcon={<i className="fa fa-star"></i>}
-                            activeColor="#ffd700"
-                          />
-                        </div>
-                        <input
-                          type="number"
-                          className="form-control"
-                          style={{ alignItems: "flex-end" }}
-                          defaultValue={1}
-                          max={producto.cantidad_disponible}
-                          min={1}
-                          onChange={(e) => {
-                            const nuevaCantidad =
-                              parseInt(e.target.value, 10) || 0;
-                            const nuevosProductos = productos.map((p) =>
-                              p.id_producto === producto.id_producto
-                                ? {
-                                    ...p,
-                                    cantidad: nuevaCantidad,
-                                  }
-                                : p
-                            );
-                            setProductos(nuevosProductos);
-                          }}
-                        />
-                        <div className="col-md-2"></div>
-                        <div className="col-md-8">
-                          <button
-                            onClick={() => agregarAlCarrito(producto)}
-                            className="btn btn-primary form-control"
+            {modalVisible ? (
+              <ProductModal producto={productSelected} />
+            ) : (
+              productos
+                .filter((producto) =>
+                  producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
+                )
+                .map((producto) => (
+                  <div key={producto.id_producto} className="col-md-4 mb-3">
+                    <div className="card" style={cardStyle}>
+                      <div
+                        className="card-body"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-md-12">
+                            <h4
+                              className="card-title"
+                              style={{ textAlign: "center" }}
+                            >
+                              {producto.nombre}
+                            </h4>
+                          </div>
+                          <img
+                            src={`${producto.imagen}`}
                             width={"100%"}
+                            height={"40%"}
+                            alt="Imagen de producto"
+                            onClick={() => handleCardClick(producto)}
+                          />
+                          <div className="col-md-6">
+                            <p className="card-text">
+                              Precio: ${producto.precio_venta}
+                            </p>
+                          </div>
+
+                          <div
+                            style={{ marginLeft: "auto" }}
+                            className="col-md-6"
                           >
-                            Agregar
-                          </button>
+                            <Rating
+                              count={5}
+                              value={
+                                producto.valoracionT / producto.valoracionC
+                              }
+                              edit={false}
+                              isHalf={true}
+                              emptyIcon={<i className="far fa-star"></i>}
+                              halfIcon={<i className="fa fa-star-half-alt"></i>}
+                              fullIcon={<i className="fa fa-star"></i>}
+                              activeColor="#ffd700"
+                            />
+                          </div>
+                          <input
+                            type="number"
+                            className="form-control"
+                            style={{ alignItems: "flex-end" }}
+                            defaultValue={1}
+                            max={producto.cantidad_disponible}
+                            min={1}
+                            onChange={(e) => {
+                              const nuevaCantidad =
+                                parseInt(e.target.value, 10) || 0;
+                              const nuevosProductos = productos.map((p) =>
+                                p.id_producto === producto.id_producto
+                                  ? {
+                                      ...p,
+                                      cantidad: nuevaCantidad,
+                                    }
+                                  : p
+                              );
+                              setProductos(nuevosProductos);
+                            }}
+                          />
+                          <div className="col-md-2"></div>
+                          <div className="col-md-8">
+                            <button
+                              onClick={() => agregarAlCarrito(producto)}
+                              className="btn btn-primary form-control"
+                              width={"100%"}
+                            >
+                              Agregar
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+            )}
           </div>
         </>
       )}

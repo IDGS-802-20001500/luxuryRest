@@ -9,6 +9,9 @@ const Pago = () => {
   const elements = useElements();
   const [productosEnCarrito, setProductosEnCarrito] = useState([]);
   const [direccion, setDireccion] = useState("");
+  const [nombreTarjeta, setNombreTarjeta] = useState("");
+  const [estado, setEstado] = useState("");
+  const [municipio, setMunicipio] = useState("");
 
   // Cargar los datos del carrito al inicio (si existen en localStorage)
   useEffect(() => {
@@ -154,6 +157,48 @@ const Pago = () => {
               placeholder="Ingrese su dirección de envío"
               value={direccion}
               onChange={(e) => setDireccion(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nombreTarjeta" className="form-label">
+              Nombre del titular de la tarjeta:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="nombreTarjeta"
+              placeholder="Ingrese el nombre del titular de la tarjeta"
+              value={nombreTarjeta}
+              onChange={(e) => setNombreTarjeta(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="estado" className="form-label">
+              Estado:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="estado"
+              placeholder="Ingrese su estado"
+              value={estado}
+              onChange={(e) => setEstado(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="municipio" className="form-label">
+              Municipio:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="municipio"
+              placeholder="Ingrese su municipio"
+              value={municipio}
+              onChange={(e) => setMunicipio(e.target.value)}
               required
             />
           </div>
